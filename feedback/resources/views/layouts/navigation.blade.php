@@ -19,6 +19,9 @@
                     <x-nav-link :href="url('feed')" :active="request()->routeIs('feed')">
                         {{ __('Feedback') }}
                     </x-nav-link>
+                    <x-nav-link :href="url('feedbacks')" :active="request()->routeIs('feedbacks')">
+                        {{ __('Score') }}
+                    </x-nav-link>
 
                     
                 </div>
