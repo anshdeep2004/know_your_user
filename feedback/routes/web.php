@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
 require __DIR__.'/auth.php';
 
 Route::controller(FeedController::class)->group(function () {
+    Route::get('/feedbacks','index');
     Route::get('/feed','create');
     Route::post('/feed','store');
 });
