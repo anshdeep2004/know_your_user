@@ -9,6 +9,11 @@ use Illuminate\View\View;
 
 class FeedController extends Controller
 {
+    public function index(){
+        $feedbacks = Feed::all();
+        return view('feedb.index', compact('feedbacks'));
+    }
+
     public function create()
     {
         return view('feedb.create');
