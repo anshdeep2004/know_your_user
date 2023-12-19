@@ -26,4 +26,31 @@ class FeedController extends Controller
         $feedbacks = Feed::create($feedba);
         return redirect('/feed')->with('message','Thanks for your Feedback');
     }
+
+    public function edit($feedback_id)
+    {
+        $feedback = Feed::find($feedback_id);
+
+        return view('feedb.edit', compact('feedback'));
+    }
+
+    public function update(FeedbackFormRequest $request, $feedback_id)
+    {
+
+        $feedba = $request->validated();
+
+        $feedback = Feed::where('id',$feedback_id)->update([
+            'name' => $feedba['name'],
+            'email' => $feedba['email'],
+            'rating' => $feedba['rating'],
+            'feedback' => $feedba['feedback'],
+            'contact' => $feedba['contact']
+        ]);
+        return redirect('/feedbacks')->with('message','Your feedback is being updated');
+    }
+
+    public function destroy($feedback_id){
+        $feedba = Feed::find($feedback_id)->delete();
+        return redirect('/feedbacks')->with('message','Your feedback is being deleted');
+    }
 }
