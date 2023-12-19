@@ -35,4 +35,7 @@ Route::controller(FeedController::class)->group(function () {
     Route::get('/feedbacks','index');
     Route::get('/feed','create');
     Route::post('/feed','store');
+    Route::get('/edit-feedback/{feedback_id}','edit');
+    Route::put('/update-feedback/{feedback_id}', 'update');
+    Route::delete('/delete-feedback/{feedback_id}', 'destroy');
 });
